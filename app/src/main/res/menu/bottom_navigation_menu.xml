@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/first"
+        android:title="Retea"
+        android:icon="@drawable/ic_home" />
+    <item
+        android:id="@+id/second"
+        android:title="Dispozitive"
+        android:icon="@drawable/baseline_devices_24" />
+    <item
+        android:id="@+id/fourth"
+        android:title="Internet"
+        android:icon="@drawable/baseline_speed_24" />
+    <item
+        android:id="@+id/third"
+        android:title="Recomandari"
+        android:icon="@drawable/baseline_security_24" />
+</menu>
