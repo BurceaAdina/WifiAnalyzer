@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,7 @@ public class SecondFragment extends Fragment {
     private ArrayAdapter<String> devicesAdapter;
     private List<String> connectedDevicesList;
     private Set<String> knownDevices;
+    private TextView text;
     private ExecutorService executorService;
 
     private boolean notifyOnNewDevice = false;
@@ -70,6 +72,7 @@ public class SecondFragment extends Fragment {
                         Toast.makeText(getContext(), "Permission denied", Toast.LENGTH_SHORT).show();
                         buttonScan.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.GONE);
+                        text.setVisibility(View.GONE);
                     }
 
                     if (!postNotificationsGranted) {
@@ -86,6 +89,7 @@ public class SecondFragment extends Fragment {
         listadispozitive = rootView.findViewById(R.id.listadispozitive);
         buttonScan = rootView.findViewById(R.id.buttonScan);
         progressBar = rootView.findViewById(R.id.progressBar);
+        text = rootView.findViewById(R.id.text);
         switchNotification = rootView.findViewById(R.id.switchNotifications);
         connectedDevicesList = new ArrayList<>();
         devicesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, connectedDevicesList);
@@ -100,6 +104,8 @@ public class SecondFragment extends Fragment {
         buttonScan.setOnClickListener(view -> {
             buttonScan.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
+            text.setVisibility(View.VISIBLE);
+
             if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissionLauncher.launch(new String[]{Manifest.permission.ACCESS_FINE_LOCATION});
             } else {
@@ -161,6 +167,7 @@ public class SecondFragment extends Fragment {
                     Toast.makeText(getContext(), "Scan complete", Toast.LENGTH_SHORT).show();
                     buttonScan.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.GONE);
+                    text.setVisibility(View.GONE);
                 });
             }
         });

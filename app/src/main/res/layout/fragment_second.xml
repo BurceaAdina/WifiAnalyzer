@@ -66,6 +66,14 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:visibility="gone" />
+        <TextView
+            android:layout_below="@+id/progressBar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se încarcă rezultatele"
+            android:id="@+id/text"
+            android:visibility="gone"/>
 
     <ListView
         android:id="@+id/listadispozitive"
@@ -74,5 +82,6 @@
         android:layout_below="@id/buttonScan"
         android:layout_marginTop="10dp" />
     </LinearLayout>
+
 
 </RelativeLayout>

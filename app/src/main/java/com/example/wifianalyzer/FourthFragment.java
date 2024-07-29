@@ -28,7 +28,7 @@ public class FourthFragment extends Fragment {
 
     private ProgressBar progressBar;
     private Button startButton;
-    private TextView downloadSpeedText, uploadSpeedText, pingText, warningText;
+    private TextView downloadSpeedText, uploadSpeedText, pingText, warningText, text;
     private Handler handler = new Handler();
     private OkHttpClient client;
     private float downloadSpeed, uploadSpeed;
@@ -44,6 +44,7 @@ public class FourthFragment extends Fragment {
         uploadSpeedText = view.findViewById(R.id.uploadSpeedText);
         pingText = view.findViewById(R.id.pingText);
         warningText = view.findViewById(R.id.warningText);
+        text = view.findViewById(R.id.text);
 
         client = new OkHttpClient();
 
@@ -59,6 +60,7 @@ public class FourthFragment extends Fragment {
 
     private void startSpeedTest() {
         progressBar.setVisibility(View.VISIBLE);
+        text.setVisibility(View.VISIBLE);
         progressBar.setProgress(0);
         downloadSpeedText.setText("Viteză de Descărcare: ");
         uploadSpeedText.setText("Viteză de Încărcare: ");
@@ -172,6 +174,7 @@ public class FourthFragment extends Fragment {
                 @Override
                 public void run() {
                     progressBar.setVisibility(View.GONE);
+                    text.setVisibility(View.GONE);
                     startButton.setVisibility(View.VISIBLE);
                     checkForWarnings();
                 }

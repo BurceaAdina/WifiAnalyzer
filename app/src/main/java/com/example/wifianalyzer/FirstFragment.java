@@ -193,7 +193,7 @@ public class FirstFragment extends Fragment {
 
     private String getSecurityProtocol(WifiInfo wifiInfo) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { // API level 31 or higher
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 switch (wifiInfo.getCurrentSecurityType()) {
                     case WifiInfo.SECURITY_TYPE_OPEN:
                         return "Open";
@@ -209,16 +209,8 @@ public class FirstFragment extends Fragment {
                         return "WPA3 OWE";
                     default:
                         return "Unknown";
-                }
-            } else {
-                // For Android R (API level 30), provide a fallback message
-                return "Security type not available (requires Android 12+)";
-            }
-        } else {
-            // For devices running below Android R, we can't reliably determine security type without deprecated methods.
-            return "Security type not available";
-        }
-    }
+                }} else { return "Tipul de securitate nu este disponibil (este necesar Android 12+)";}
+        } else { return "Tipul de securitate nu este disponibil"; }}
 
     private void fetchExternalInfo() {
         String url = "https://ipinfo.io/json?token=282905b54b2997";
